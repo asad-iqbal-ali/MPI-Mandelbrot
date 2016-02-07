@@ -1,0 +1,23 @@
+#!/usr/bin/gnuplot
+reset
+
+set terminal png
+set output "data.png"
+
+set xlabel "Number of processes"
+set ylabel "time (milliseconds)"
+set yrange [1000:1000000]
+set xrange [0:35]
+unset logscale
+set logscale y
+
+set title "Mandelbrot Calcculation Times"
+set key reverse Left outside
+set grid
+
+set style data linespoints
+
+plot "ms-times" using 1:2 title "M-S Alg, bs = 10^6", \
+"def-times" using 1:2 title "Default Alg."
+
+#

@@ -1,0 +1,16 @@
+#!/usr/bin/gnuplot
+
+reset
+
+set terminal png 
+set output 'man-map.png'
+
+set border linewidth 0
+unset key
+unset colorbox
+set palette maxcolors 2
+set palette defined ( 0 '#ffffff', 1 '#000000') 
+set xrange [-2:1]
+set yrange [-1.5:1.5]
+
+plot 'dots.dat' u (((($1+1)*3)/10000)-2):(((($2+1)*3)/10000)-1.5):3 matrix with image

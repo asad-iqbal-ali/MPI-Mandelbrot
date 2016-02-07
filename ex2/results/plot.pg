@@ -1,0 +1,20 @@
+#!/usr/bin/gnuplot
+reset
+
+set terminal png
+set output "bandwidth.png"
+
+set xlabel "Size of packet (MB)"
+set ylabel "Bandwidth (GB/s)"
+set xrange [0:4096]
+set yrange [0:1.5]
+
+set title "Bandwidth for Message Passing"
+set grid
+unset key
+
+set style data linespoints
+
+plot "data" using ($1/1000):($2/1000000000)
+
+#
